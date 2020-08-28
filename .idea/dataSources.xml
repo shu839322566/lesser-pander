@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="eladmin@locahost" uuid="a68a650c-5958-44e4-a553-d680c9893955">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <configured-by-url>true</configured-by-url>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/eladmin?serverTimezone=Asia/Shanghai&amp;characterEncoding=utf8&amp;useSSL=false</jdbc-url>
+    </data-source>
+  </component>
+</project>

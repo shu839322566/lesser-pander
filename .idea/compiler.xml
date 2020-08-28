@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="lesser-pander-tools" />
+        <module name="lesser-pander-logging" />
+        <module name="lesser-pander-common" />
+        <module name="lesser-pander-generator" />
+        <module name="lesser-pander-system" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="lesser-pander" target="1.8" />
+      <module name="lesser-pander-common" target="1.8" />
+      <module name="lesser-pander-generator" target="1.8" />
+      <module name="lesser-pander-logging" target="1.8" />
+      <module name="lesser-pander-system" target="1.8" />
+      <module name="lesser-pander-tools" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="lesser-pander-common" options="-parameters" />
+      <module name="lesser-pander-generator" options="-parameters" />
+      <module name="lesser-pander-logging" options="-parameters" />
+      <module name="lesser-pander-system" options="-parameters" />
+      <module name="lesser-pander-tools" options="-parameters" />
+    </option>
+  </component>
+</project>

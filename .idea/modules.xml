@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/lesser-pander.iml" filepath="$PROJECT_DIR$/lesser-pander.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lesser-pander-common/lesser-pander-common.iml" filepath="$PROJECT_DIR$/lesser-pander-common/lesser-pander-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lesser-pander-generator/lesser-pander-generator.iml" filepath="$PROJECT_DIR$/lesser-pander-generator/lesser-pander-generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lesser-pander-logging/lesser-pander-logging.iml" filepath="$PROJECT_DIR$/lesser-pander-logging/lesser-pander-logging.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lesser-pander-system/lesser-pander-system.iml" filepath="$PROJECT_DIR$/lesser-pander-system/lesser-pander-system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lesser-pander-tools/lesser-pander-tools.iml" filepath="$PROJECT_DIR$/lesser-pander-tools/lesser-pander-tools.iml" />
+    </modules>
+  </component>
+</project>
