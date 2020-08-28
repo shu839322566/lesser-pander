@@ -6,7 +6,7 @@
 </div>
 
 #### 项目简介
-一个基于 Spring Boot 2.1.0 、 Spring Boot Jpa、 JWT、Spring Security、Redis、Vue的前后端分离的后台管理系统
+一个基于 Spring Boot 2.1.0 、 Spring Boot Mybatis、 JWT、Spring Security、Redis、Vue的前后端分离的后台管理系统
 
 **开发文档：**  [https://el-admin.vip](https://el-admin.vip)
 
@@ -81,43 +81,6 @@
 - eladmin-tools 系统第三方工具模块
 - eladmin-generator 系统代码生成模块
 ```
-    
-#### 系统预览
-<table>
-    <tr>
-        <td><img src="https://img.el-admin.xin/20200605172248.png"/></td>
-        <td><img src="https://img.el-admin.xin/20200605172339.png"/></td>
-    </tr>
-    <tr>
-        <td><img src="https://img.el-admin.xin/20200605172432.png"/></td>
-        <td><img src="https://img.el-admin.xin/20200605172455.png"/></td>
-    </tr>
-    <tr>
-        <td><img src="https://img.el-admin.xin/20200605172536.png"/></td>
-        <td><img src="https://img.el-admin.xin/20200605172558.png"/></td>
-    </tr>
-    <tr>
-        <td><img src="https://img.el-admin.xin/20200605172645.png"/></td>
-        <td><img src="https://img.el-admin.xin/20200605172715.png"/></td>
-    </tr>
-</table>
-
-#### 特别鸣谢
-
-- 感谢 [JetBrains](https://www.jetbrains.com/) 提供的非商业开源软件开发授权
-
-- 感谢 [PanJiaChen](https://github.com/PanJiaChen/vue-element-admin) 大佬提供的前端模板
-
-- 感谢 [Moxun](https://github.com/moxun1639) 大佬提供的前端 Curd 通用组件
-
-- 感谢 [zhy6599](https://gitee.com/zhy6599) 大佬提供的后端运维管理相关功能
-
-- 感谢 [j.yao.SUSE](https://github.com/everhopingandwaiting) 大佬提供的匿名接口与Redis限流等功能
-
-- 感谢 [d15801543974](https://github.com/d15801543974) 大佬提供的基于注解的通用查询方式
-
-#### 项目捐赠
-项目的发展离不开你的支持，请作者喝杯咖啡吧☕  [Donate](https://el-admin.vip/donation/)
 
 #### 反馈交流
 - @author shuyx shu839322566@icloud.com
