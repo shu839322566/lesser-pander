@@ -95,7 +95,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.me.zhengjie.AppRun</mainClass>
+                    <mainClass>com.com.nantian.AppRun</mainClass>
                 </configuration>
                 <executions>
                     <execution>

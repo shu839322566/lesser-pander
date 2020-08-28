@@ -1,10 +1,7 @@
-<h1 style="text-align: center">EL-ADMIN 后台管理系统</h1>
+<h1 style="text-align: center">LESSER-PANDER后台管理</h1>
 <div style="text-align: center">
 
 [![AUR](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg)](https://github.com/elunez/eladmin/blob/master/LICENSE)
-[![star](https://gitee.com/elunez/eladmin/badge/star.svg?theme=white)](https://gitee.com/elunez/eladmin)
-[![GitHub stars](https://img.shields.io/github/stars/elunez/eladmin.svg?style=social&label=Stars)](https://github.com/elunez/eladmin)
-[![GitHub forks](https://img.shields.io/github/forks/elunez/eladmin.svg?style=social&label=Fork)](https://github.com/elunez/eladmin)
 
 </div>
 
@@ -21,8 +18,7 @@
 
 |     |   后端源码  |   前端源码  |
 |---  |--- | --- |
-|  github   |  https://github.com/elunez/eladmin   |  https://github.com/elunez/eladmin-web   |
-|  码云   |  https://gitee.com/elunez/eladmin   |  https://gitee.com/elunez/eladmin-web   |
+|  github   |  https://github.com/shu839322566/lesser-pander   |  https://github.com/elunez/eladmin-web   |
 
 #### 主要特性
 - 使用最新技术栈，社区资源丰富。

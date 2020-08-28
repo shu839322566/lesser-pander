@@ -15,7 +15,7 @@
 */
 package ${package}.rest;
 
-import me.zhengjie.annotation.Log;
+import com.nantian.annotation.Log;
 import ${package}.domain.${className};
 import ${package}.service.${className}Service;
 import ${package}.service.dto.${className}QueryCriteria;
