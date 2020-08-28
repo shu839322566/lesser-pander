@@ -25,7 +25,7 @@ import lombok.RequiredArgsConstructor;
 import com.nantian.domain.vo.EmailVo;
 import com.nantian.exception.BadRequestException;
 import com.nantian.modules.system.service.VerifyService;
-import com.nantian.utils.RedisUtils;
+import com.nantian.utils.RedisUtil;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -41,7 +41,7 @@ public class VerifyServiceImpl implements VerifyService {
 
     @Value("${code.expiration}")
     private Long expiration;
-    private final RedisUtils redisUtils;
+    private final RedisUtil redisUtil;
 
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -52,11 +52,11 @@ public class VerifyServiceImpl implements VerifyService {
         // 如果不存在有效的验证码，就创建一个新的
         TemplateEngine engine = TemplateUtil.createEngine(new TemplateConfig("template", TemplateConfig.ResourceMode.CLASSPATH));
         Template template = engine.getTemplate("email/email.ftl");
-        Object oldCode =  redisUtils.get(redisKey);
+        Object oldCode =  redisUtil.get(redisKey);
         if(oldCode == null){
             String code = RandomUtil.randomNumbers (6);
             // 存入缓存
-            if(!redisUtils.set(redisKey, code, expiration)){
+            if(!redisUtil.set(redisKey, code, expiration)){
                 throw new BadRequestException("服务异常，请联系网站负责人");
             }
             content = template.render(Dict.create().set("code",code));
@@ -71,11 +71,11 @@ public class VerifyServiceImpl implements VerifyService {
 
     @Override
     public void validated(String key, String code) {
-        Object value = redisUtils.get(key);
+        Object value = redisUtil.get(key);
         if(value == null || !value.toString().equals(code)){
             throw new BadRequestException("无效验证码");
         } else {
-            redisUtils.del(key);
+            redisUtil.del(key);
         }
     }
 }

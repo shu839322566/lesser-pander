@@ -28,7 +28,7 @@ import java.nio.charset.StandardCharsets;
  * @date 2018-11-23
  */
 
-public class EncryptUtils {
+public class EncryptUtil {
 
     private static final String STR_PARAM = "Passw0rd";
 

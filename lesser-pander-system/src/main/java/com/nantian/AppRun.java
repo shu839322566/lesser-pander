@@ -16,15 +16,15 @@
 package com.nantian;
 
 import com.nantian.annotation.rest.AnonymousGetMapping;
-import com.nantian.utils.SpringContextHolder;
+import com.nantian.utils.ApplicationContextHolder;
 import io.swagger.annotations.Api;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
-import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,12 +34,12 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Zheng Jie
  * @date 2018/11/15 9:20:19
  */
-@EnableAsync
 @RestController
 @Api(hidden = true)
 @SpringBootApplication
 @EnableTransactionManagement
 @EnableJpaAuditing(auditorAwareRef = "auditorAware")
+@MapperScan(value = {"com.nantian.modules.*.dao"})
 public class AppRun {
 
     public static void main(String[] args) {
@@ -47,8 +47,8 @@ public class AppRun {
     }
 
     @Bean
-    public SpringContextHolder springContextHolder() {
-        return new SpringContextHolder();
+    public ApplicationContextHolder springContextHolder() {
+        return new ApplicationContextHolder();
     }
 
     @Bean

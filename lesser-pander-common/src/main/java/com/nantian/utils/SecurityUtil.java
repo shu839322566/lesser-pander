@@ -34,7 +34,7 @@ import java.util.List;
  * @date 2019-01-17
  */
 @Slf4j
-public class SecurityUtils {
+public class SecurityUtil {
 
     /**
      * 获取当前登录的用户
@@ -47,7 +47,7 @@ public class SecurityUtils {
         }
         if (authentication.getPrincipal() instanceof UserDetails) {
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-            UserDetailsService userDetailsService = SpringContextHolder.getBean(UserDetailsService.class);
+            UserDetailsService userDetailsService = ApplicationContextHolder.getBean(UserDetailsService.class);
             return userDetailsService.loadUserByUsername(userDetails.getUsername());
         }
         throw new BadRequestException(HttpStatus.UNAUTHORIZED, "找不到当前登录的信息");

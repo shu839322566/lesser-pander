@@ -60,7 +60,7 @@ public class RoleServiceImpl implements RoleService {
     private final RoleRepository roleRepository;
     private final RoleMapper roleMapper;
     private final RoleSmallMapper roleSmallMapper;
-    private final RedisUtils redisUtils;
+    private final RedisUtil redisUtil;
     private final UserRepository userRepository;
     private final UserCacheClean userCacheClean;
 
@@ -173,7 +173,7 @@ public class RoleServiceImpl implements RoleService {
         }
         Set<Role> roles = roleRepository.findByUserId(user.getId());
         permissions = roles.stream().flatMap(role -> role.getMenus().stream())
-                .filter(menu -> StringUtils.isNotBlank(menu.getPermission()))
+                .filter(menu -> StringUtil.isNotBlank(menu.getPermission()))
                 .map(Menu::getPermission).collect(Collectors.toSet());
         return permissions.stream().map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
@@ -214,10 +214,10 @@ public class RoleServiceImpl implements RoleService {
         if (CollectionUtil.isNotEmpty(users)) {
             users.forEach(item -> userCacheClean.cleanUserCache(item.getUsername()));
             Set<Long> userIds = users.stream().map(User::getId).collect(Collectors.toSet());
-            redisUtils.delByKeys(CacheKey.DATE_USER, userIds);
-            redisUtils.delByKeys(CacheKey.MENU_USER, userIds);
-            redisUtils.delByKeys(CacheKey.ROLE_AUTH, userIds);
-            redisUtils.del(CacheKey.ROLE_ID + id);
+            redisUtil.delByKeys(CacheKey.DATE_USER, userIds);
+            redisUtil.delByKeys(CacheKey.MENU_USER, userIds);
+            redisUtil.delByKeys(CacheKey.ROLE_AUTH, userIds);
+            redisUtil.del(CacheKey.ROLE_ID + id);
         }
 
     }

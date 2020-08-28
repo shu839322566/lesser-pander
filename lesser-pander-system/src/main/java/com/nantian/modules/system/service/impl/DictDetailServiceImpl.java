@@ -22,7 +22,7 @@ import com.nantian.modules.system.repository.DictRepository;
 import com.nantian.modules.system.service.dto.DictDetailQueryCriteria;
 import com.nantian.utils.PageUtil;
 import com.nantian.utils.QueryHelp;
-import com.nantian.utils.RedisUtils;
+import com.nantian.utils.RedisUtil;
 import com.nantian.utils.ValidationUtil;
 import com.nantian.modules.system.repository.DictDetailRepository;
 import com.nantian.modules.system.service.DictDetailService;
@@ -49,7 +49,7 @@ public class DictDetailServiceImpl implements DictDetailService {
     private final DictRepository dictRepository;
     private final DictDetailRepository dictDetailRepository;
     private final DictDetailMapper dictDetailMapper;
-    private final RedisUtils redisUtils;
+    private final RedisUtil redisUtil;
 
     @Override
     public Map<String,Object> queryAll(DictDetailQueryCriteria criteria, Pageable pageable) {
@@ -93,6 +93,6 @@ public class DictDetailServiceImpl implements DictDetailService {
 
     public void delCaches(DictDetail dictDetail){
         Dict dict = dictRepository.findById(dictDetail.getDict().getId()).orElseGet(Dict::new);
-        redisUtils.del("dept::name:" + dict.getName());
+        redisUtil.del("dept::name:" + dict.getName());
     }
 }

@@ -15,17 +15,18 @@
  */
 package com.nantian.modules.security.rest;
 
+import com.nantian.annotation.Log;
 import com.nantian.modules.security.service.OnlineUserService;
+import com.nantian.utils.EncryptUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
-import com.nantian.annotation.Log;
-import com.nantian.utils.EncryptUtils;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Set;
@@ -44,8 +45,8 @@ public class OnlineController {
     @ApiOperation("查询在线用户")
     @GetMapping
     @PreAuthorize("@el.check()")
-    public ResponseEntity<Object> query(String filter, Pageable pageable){
-        return new ResponseEntity<>(onlineUserService.getAll(filter, pageable),HttpStatus.OK);
+    public ResponseEntity<Object> query(String filter, Pageable pageable) {
+        return new ResponseEntity<>(onlineUserService.getAll(filter, pageable), HttpStatus.OK);
     }
 
     @Log("导出数据")
@@ -62,7 +63,7 @@ public class OnlineController {
     public ResponseEntity<Object> delete(@RequestBody Set<String> keys) throws Exception {
         for (String key : keys) {
             // 解密Key
-            key = EncryptUtils.desDecrypt(key);
+            key = EncryptUtil.desDecrypt(key);
             onlineUserService.kickOut(key);
         }
         return new ResponseEntity<>(HttpStatus.OK);

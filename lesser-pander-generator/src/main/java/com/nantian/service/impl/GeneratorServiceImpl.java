@@ -28,7 +28,7 @@ import com.nantian.service.GeneratorService;
 import com.nantian.utils.FileUtil;
 import com.nantian.utils.GenUtil;
 import com.nantian.utils.PageUtil;
-import com.nantian.utils.StringUtils;
+import com.nantian.utils.StringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -79,7 +79,7 @@ public class GeneratorServiceImpl implements GeneratorService {
         Query query = em.createNativeQuery(sql);
         query.setFirstResult(startEnd[0]);
         query.setMaxResults(startEnd[1] - startEnd[0]);
-        query.setParameter(1, StringUtils.isNotBlank(name) ? ("%" + name + "%") : "%%");
+        query.setParameter(1, StringUtil.isNotBlank(name) ? ("%" + name + "%") : "%%");
         List result = query.getResultList();
         List<TableInfo> tableInfos = new ArrayList<>();
         for (Object obj : result) {
@@ -139,7 +139,7 @@ public class GeneratorServiceImpl implements GeneratorService {
                 column.setColumnType(columnInfo.getColumnType());
                 column.setExtra(columnInfo.getExtra());
                 column.setKeyType(columnInfo.getKeyType());
-                if (StringUtils.isBlank(column.getRemark())) {
+                if (StringUtil.isBlank(column.getRemark())) {
                     column.setRemark(columnInfo.getRemark());
                 }
                 columnInfoRepository.save(column);

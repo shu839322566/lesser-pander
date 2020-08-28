@@ -21,7 +21,7 @@ import com.nantian.modules.system.service.MenuService;
 import com.nantian.modules.system.service.dto.MenuDto;
 import com.nantian.modules.system.service.dto.MenuQueryCriteria;
 import com.nantian.modules.system.service.mapstruct.MenuMapper;
-import com.nantian.utils.SecurityUtils;
+import com.nantian.utils.SecurityUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -62,7 +62,7 @@ public class MenuController {
     @GetMapping(value = "/build")
     @ApiOperation("获取前端所需菜单")
     public ResponseEntity<Object> buildMenus(){
-        List<MenuDto> menuDtoList = menuService.findByUser(SecurityUtils.getCurrentUserId());
+        List<MenuDto> menuDtoList = menuService.findByUser(SecurityUtil.getCurrentUserId());
         List<MenuDto> menuDtos = menuService.buildTree(menuDtoList);
         return new ResponseEntity<>(menuService.buildMenus(menuDtos),HttpStatus.OK);
     }

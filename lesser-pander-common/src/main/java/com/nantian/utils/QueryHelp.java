@@ -42,12 +42,12 @@ public class QueryHelp {
         DataPermission permission = query.getClass().getAnnotation(DataPermission.class);
         if(permission != null){
             // 获取数据权限
-            List<Long> dataScopes = SecurityUtils.getCurrentUserDataScope();
+            List<Long> dataScopes = SecurityUtil.getCurrentUserDataScope();
             if(CollectionUtil.isNotEmpty(dataScopes)){
-                if(StringUtils.isNotBlank(permission.joinName()) && StringUtils.isNotBlank(permission.fieldName())) {
+                if(StringUtil.isNotBlank(permission.joinName()) && StringUtil.isNotBlank(permission.fieldName())) {
                     Join join = root.join(permission.joinName(), JoinType.LEFT);
                     list.add(getExpression(permission.fieldName(),join, root).in(dataScopes));
-                } else if (StringUtils.isBlank(permission.joinName()) && StringUtils.isNotBlank(permission.fieldName())) {
+                } else if (StringUtil.isBlank(permission.joinName()) && StringUtil.isNotBlank(permission.fieldName())) {
                     list.add(getExpression(permission.fieldName(),null, root).in(dataScopes));
                 }
             }

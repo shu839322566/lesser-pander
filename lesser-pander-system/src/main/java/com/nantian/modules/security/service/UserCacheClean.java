@@ -16,7 +16,7 @@
 
 package com.nantian.modules.security.service;
 
-import com.nantian.utils.StringUtils;
+import com.nantian.utils.StringUtil;
 import org.springframework.stereotype.Component;
 
 /**
@@ -34,7 +34,7 @@ public class UserCacheClean {
      * @param userName /
      */
     public void cleanUserCache(String userName) {
-        if (StringUtils.isNotEmpty(userName)) {
+        if (StringUtil.isNotEmpty(userName)) {
             UserDetailsServiceImpl.userDtoCache.remove(userName);
         }
     }

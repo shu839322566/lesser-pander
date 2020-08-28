@@ -16,7 +16,7 @@
 package com.nantian.modules.system.rest;
 
 import cn.hutool.core.lang.Dict;
-import com.nantian.utils.SecurityUtils;
+import com.nantian.utils.SecurityUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -144,7 +144,7 @@ public class RoleController {
      * @return /
      */
     private int getLevels(Integer level){
-        List<Integer> levels = roleService.findByUsersId(SecurityUtils.getCurrentUserId()).stream().map(RoleSmallDto::getLevel).collect(Collectors.toList());
+        List<Integer> levels = roleService.findByUsersId(SecurityUtil.getCurrentUserId()).stream().map(RoleSmallDto::getLevel).collect(Collectors.toList());
         int min = Collections.min(levels);
         if(level != null){
             if(level < min){

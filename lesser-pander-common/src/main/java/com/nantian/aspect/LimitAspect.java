@@ -18,7 +18,7 @@ package com.nantian.aspect;
 import com.google.common.collect.ImmutableList;
 import com.nantian.exception.BadRequestException;
 import com.nantian.utils.RequestHolder;
-import com.nantian.utils.StringUtils;
+import com.nantian.utils.StringUtil;
 import com.nantian.annotation.Limit;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -60,15 +60,15 @@ public class LimitAspect {
         Limit limit = signatureMethod.getAnnotation(Limit.class);
         LimitType limitType = limit.limitType();
         String key = limit.key();
-        if (StringUtils.isEmpty(key)) {
+        if (StringUtil.isEmpty(key)) {
             if (limitType == LimitType.IP) {
-                key = StringUtils.getIp(request);
+                key = StringUtil.getIp(request);
             } else {
                 key = signatureMethod.getName();
             }
         }
 
-        ImmutableList<Object> keys = ImmutableList.of(StringUtils.join(limit.prefix(), "_", key, "_", request.getRequestURI().replaceAll("/","_")));
+        ImmutableList<Object> keys = ImmutableList.of(StringUtil.join(limit.prefix(), "_", key, "_", request.getRequestURI().replaceAll("/","_")));
 
         String luaScript = buildLuaScript();
         RedisScript<Number> redisScript = new DefaultRedisScript<>(luaScript, Number.class);

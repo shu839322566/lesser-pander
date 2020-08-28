@@ -21,15 +21,16 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.core.env.Environment;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Jie
- * @date 2019-01-07
+ * @author shuyx
+ * @date 2020/08/28
  */
 @Slf4j
-public class SpringContextHolder implements ApplicationContextAware, DisposableBean {
+public class ApplicationContextHolder implements ApplicationContextAware, DisposableBean {
 
     private static ApplicationContext applicationContext = null;
     private static final List<CallBack> CALL_BACKS = new ArrayList<>();
@@ -43,7 +44,7 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
      */
     public synchronized static void addCallBacks(CallBack callBack) {
         if (addCallback) {
-            SpringContextHolder.CALL_BACKS.add(callBack);
+            ApplicationContextHolder.CALL_BACKS.add(callBack);
         } else {
             log.warn("CallBack：{} 已无法添加！立即执行", callBack.getCallBackName());
             callBack.executor();
@@ -79,7 +80,8 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
         T result = defaultValue;
         try {
             result = getBean(Environment.class).getProperty(property, requiredType);
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        }
         return result;
     }
 
@@ -125,21 +127,18 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
 
     @Override
     public void destroy() {
-        SpringContextHolder.clearHolder();
+        ApplicationContextHolder.clearHolder();
     }
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        if (SpringContextHolder.applicationContext != null) {
-            log.warn("SpringContextHolder中的ApplicationContext被覆盖, 原有ApplicationContext为:" + SpringContextHolder.applicationContext);
-        }
-        SpringContextHolder.applicationContext = applicationContext;
+        ApplicationContextHolder.applicationContext = applicationContext;
         if (addCallback) {
-            for (CallBack callBack : SpringContextHolder.CALL_BACKS) {
+            for (CallBack callBack : ApplicationContextHolder.CALL_BACKS) {
                 callBack.executor();
             }
             CALL_BACKS.clear();
         }
-        SpringContextHolder.addCallback = false;
+        ApplicationContextHolder.addCallback = false;
     }
 }

@@ -16,27 +16,27 @@
 package com.nantian.modules.security.rest;
 
 import cn.hutool.core.util.IdUtil;
-import com.nantian.annotation.rest.AnonymousGetMapping;
-import com.nantian.modules.security.security.TokenProvider;
-import com.nantian.modules.security.service.dto.JwtUserDto;
-import com.nantian.utils.SecurityUtils;
-import com.wf.captcha.base.Captcha;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import com.nantian.annotation.Log;
 import com.nantian.annotation.rest.AnonymousDeleteMapping;
+import com.nantian.annotation.rest.AnonymousGetMapping;
 import com.nantian.annotation.rest.AnonymousPostMapping;
 import com.nantian.config.RsaProperties;
 import com.nantian.exception.BadRequestException;
 import com.nantian.modules.security.config.bean.LoginProperties;
 import com.nantian.modules.security.config.bean.SecurityProperties;
-import com.nantian.modules.security.service.dto.AuthUserDto;
+import com.nantian.modules.security.security.TokenProvider;
 import com.nantian.modules.security.service.OnlineUserService;
-import com.nantian.utils.RsaUtils;
-import com.nantian.utils.RedisUtils;
-import com.nantian.utils.StringUtils;
+import com.nantian.modules.security.service.dto.AuthUserDto;
+import com.nantian.modules.security.service.dto.JwtUserDto;
+import com.nantian.utils.RedisUtil;
+import com.nantian.utils.RsaUtil;
+import com.nantian.utils.SecurityUtil;
+import com.nantian.utils.StringUtil;
+import com.wf.captcha.base.Captcha;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -44,7 +44,11 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -63,7 +67,7 @@ import java.util.concurrent.TimeUnit;
 @Api(tags = "系统：系统授权接口")
 public class AuthorizationController {
     private final SecurityProperties properties;
-    private final RedisUtils redisUtils;
+    private final RedisUtil redisUtil;
     private final OnlineUserService onlineUserService;
     private final TokenProvider tokenProvider;
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
@@ -75,15 +79,15 @@ public class AuthorizationController {
     @AnonymousPostMapping(value = "/login")
     public ResponseEntity<Object> login(@Validated @RequestBody AuthUserDto authUser, HttpServletRequest request) throws Exception {
         // 密码解密
-        String password = RsaUtils.decryptByPrivateKey(RsaProperties.privateKey, authUser.getPassword());
+        String password = RsaUtil.decryptByPrivateKey(RsaProperties.privateKey, authUser.getPassword());
         // 查询验证码
-        String code = (String) redisUtils.get(authUser.getUuid());
+        String code = (String) redisUtil.get(authUser.getUuid());
         // 清除验证码
-        redisUtils.del(authUser.getUuid());
-        if (StringUtils.isBlank(code)) {
+        redisUtil.del(authUser.getUuid());
+        if (StringUtil.isBlank(code)) {
             throw new BadRequestException("验证码不存在或已过期");
         }
-        if (StringUtils.isBlank(authUser.getCode()) || !authUser.getCode().equalsIgnoreCase(code)) {
+        if (StringUtil.isBlank(authUser.getCode()) || !authUser.getCode().equalsIgnoreCase(code)) {
             throw new BadRequestException("验证码错误");
         }
         UsernamePasswordAuthenticationToken authenticationToken =
@@ -110,7 +114,7 @@ public class AuthorizationController {
     @ApiOperation("获取用户信息")
     @GetMapping(value = "/info")
     public ResponseEntity<Object> getUserInfo() {
-        return ResponseEntity.ok(SecurityUtils.getCurrentUser());
+        return ResponseEntity.ok(SecurityUtil.getCurrentUser());
     }
 
     @ApiOperation("获取验证码")
@@ -120,7 +124,7 @@ public class AuthorizationController {
         Captcha captcha = loginProperties.getCaptcha();
         String uuid = properties.getCodeKey() + IdUtil.simpleUUID();
         // 保存
-        redisUtils.set(uuid, captcha.text(), loginProperties.getLoginCode().getExpiration(), TimeUnit.MINUTES);
+        redisUtil.set(uuid, captcha.text(), loginProperties.getLoginCode().getExpiration(), TimeUnit.MINUTES);
         // 验证码信息
         Map<String, Object> imgResult = new HashMap<String, Object>(2) {{
             put("img", captcha.toBase64());

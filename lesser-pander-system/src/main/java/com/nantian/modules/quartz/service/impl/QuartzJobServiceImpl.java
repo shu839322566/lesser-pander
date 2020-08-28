@@ -46,7 +46,7 @@ public class QuartzJobServiceImpl implements QuartzJobService {
     private final QuartzJobRepository quartzJobRepository;
     private final QuartzLogRepository quartzLogRepository;
     private final QuartzManage quartzManage;
-    private final RedisUtils redisUtils;
+    private final RedisUtil redisUtil;
 
     @Override
     public Object queryAll(JobQueryCriteria criteria, Pageable pageable){
@@ -91,7 +91,7 @@ public class QuartzJobServiceImpl implements QuartzJobService {
         if (!CronExpression.isValidExpression(resources.getCronExpression())){
             throw new BadRequestException("cron表达式格式错误");
         }
-        if(StringUtils.isNotBlank(resources.getSubTask())){
+        if(StringUtil.isNotBlank(resources.getSubTask())){
             List<String> tasks = Arrays.asList(resources.getSubTask().split("[,，]"));
             if (tasks.contains(resources.getId().toString())) {
                 throw new BadRequestException("子任务中不能添加当前任务ID");
@@ -140,14 +140,14 @@ public class QuartzJobServiceImpl implements QuartzJobService {
             // 执行任务
             execution(quartzJob);
             // 获取执行状态，如果执行失败则停止后面的子任务执行
-            Boolean result = (Boolean) redisUtils.get(uuid);
+            Boolean result = (Boolean) redisUtil.get(uuid);
             while (result == null) {
                 // 休眠5秒，再次获取子任务执行情况
                 Thread.sleep(5000);
-                result = (Boolean) redisUtils.get(uuid);
+                result = (Boolean) redisUtil.get(uuid);
             }
             if(!result){
-                redisUtils.del(uuid);
+                redisUtil.del(uuid);
                 break;
             }
         }

@@ -37,11 +37,11 @@ import java.util.*;
 public class OnlineUserService {
 
     private final SecurityProperties properties;
-    private final RedisUtils redisUtils;
+    private final RedisUtil redisUtil;
 
-    public OnlineUserService(SecurityProperties properties, RedisUtils redisUtils) {
+    public OnlineUserService(SecurityProperties properties, RedisUtil redisUtil) {
         this.properties = properties;
-        this.redisUtils = redisUtils;
+        this.redisUtil = redisUtil;
     }
 
     /**
@@ -52,16 +52,16 @@ public class OnlineUserService {
      */
     public void save(JwtUserDto jwtUserDto, String token, HttpServletRequest request){
         String dept = jwtUserDto.getUser().getDept().getName();
-        String ip = StringUtils.getIp(request);
-        String browser = StringUtils.getBrowser(request);
-        String address = StringUtils.getCityInfo(ip);
+        String ip = StringUtil.getIp(request);
+        String browser = StringUtil.getBrowser(request);
+        String address = StringUtil.getCityInfo(ip);
         OnlineUserDto onlineUserDto = null;
         try {
-            onlineUserDto = new OnlineUserDto(jwtUserDto.getUsername(), jwtUserDto.getUser().getNickName(), dept, browser , ip, address, EncryptUtils.desEncrypt(token), new Date());
+            onlineUserDto = new OnlineUserDto(jwtUserDto.getUsername(), jwtUserDto.getUser().getNickName(), dept, browser , ip, address, EncryptUtil.desEncrypt(token), new Date());
         } catch (Exception e) {
             log.error(e.getMessage(),e);
         }
-        redisUtils.set(properties.getOnlineKey() + token, onlineUserDto, properties.getTokenValidityInSeconds()/1000);
+        redisUtil.set(properties.getOnlineKey() + token, onlineUserDto, properties.getTokenValidityInSeconds()/1000);
     }
 
     /**
@@ -84,12 +84,12 @@ public class OnlineUserService {
      * @return /
      */
     public List<OnlineUserDto> getAll(String filter){
-        List<String> keys = redisUtils.scan(properties.getOnlineKey() + "*");
+        List<String> keys = redisUtil.scan(properties.getOnlineKey() + "*");
         Collections.reverse(keys);
         List<OnlineUserDto> onlineUserDtos = new ArrayList<>();
         for (String key : keys) {
-            OnlineUserDto onlineUserDto = (OnlineUserDto) redisUtils.get(key);
-            if(StringUtils.isNotBlank(filter)){
+            OnlineUserDto onlineUserDto = (OnlineUserDto) redisUtil.get(key);
+            if(StringUtil.isNotBlank(filter)){
                 if(onlineUserDto.toString().contains(filter)){
                     onlineUserDtos.add(onlineUserDto);
                 }
@@ -107,7 +107,7 @@ public class OnlineUserService {
      */
     public void kickOut(String key){
         key = properties.getOnlineKey() + key;
-        redisUtils.del(key);
+        redisUtil.del(key);
     }
 
     /**
@@ -116,7 +116,7 @@ public class OnlineUserService {
      */
     public void logout(String token) {
         String key = properties.getOnlineKey() + token;
-        redisUtils.del(key);
+        redisUtil.del(key);
     }
 
     /**
@@ -146,7 +146,7 @@ public class OnlineUserService {
      * @return /
      */
     public OnlineUserDto getOne(String key) {
-        return (OnlineUserDto)redisUtils.get(key);
+        return (OnlineUserDto) redisUtil.get(key);
     }
 
     /**
@@ -161,10 +161,10 @@ public class OnlineUserService {
         for(OnlineUserDto onlineUserDto : onlineUserDtos){
             if(onlineUserDto.getUserName().equals(userName)){
                 try {
-                    String token =EncryptUtils.desDecrypt(onlineUserDto.getKey());
-                    if(StringUtils.isNotBlank(igoreToken)&&!igoreToken.equals(token)){
+                    String token = EncryptUtil.desDecrypt(onlineUserDto.getKey());
+                    if(StringUtil.isNotBlank(igoreToken)&&!igoreToken.equals(token)){
                         this.kickOut(token);
-                    }else if(StringUtils.isBlank(igoreToken)){
+                    }else if(StringUtil.isBlank(igoreToken)){
                         this.kickOut(token);
                     }
                 } catch (Exception e) {

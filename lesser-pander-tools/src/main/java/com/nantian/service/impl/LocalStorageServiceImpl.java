@@ -80,7 +80,7 @@ public class LocalStorageServiceImpl implements LocalStorageService {
             throw new BadRequestException("上传失败");
         }
         try {
-            name = StringUtils.isBlank(name) ? FileUtil.getFileNameNoEx(multipartFile.getOriginalFilename()) : name;
+            name = StringUtil.isBlank(name) ? FileUtil.getFileNameNoEx(multipartFile.getOriginalFilename()) : name;
             LocalStorage localStorage = new LocalStorage(
                     file.getName(),
                     name,

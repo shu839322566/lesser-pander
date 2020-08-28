@@ -57,7 +57,7 @@ public class MenuServiceImpl implements MenuService {
     private final UserRepository userRepository;
     private final MenuMapper menuMapper;
     private final RoleService roleService;
-    private final RedisUtils redisUtils;
+    private final RedisUtil redisUtil;
 
     @Override
     public List<MenuDto> queryAll(MenuQueryCriteria criteria, Boolean isQuery) throws Exception {
@@ -109,7 +109,7 @@ public class MenuServiceImpl implements MenuService {
         if(menuRepository.findByTitle(resources.getTitle()) != null){
             throw new EntityExistException(Menu.class,"title",resources.getTitle());
         }
-        if(StringUtils.isNotBlank(resources.getComponentName())){
+        if(StringUtil.isNotBlank(resources.getComponentName())){
             if(menuRepository.findByComponentName(resources.getComponentName()) != null){
                 throw new EntityExistException(Menu.class,"componentName",resources.getComponentName());
             }
@@ -128,7 +128,7 @@ public class MenuServiceImpl implements MenuService {
         resources.setSubCount(0);
         // 更新父节点菜单数目
         updateSubCnt(resources.getPid());
-        redisUtils.del("menu::pid:" + (resources.getPid() == null ? 0 : resources.getPid()));
+        redisUtil.del("menu::pid:" + (resources.getPid() == null ? 0 : resources.getPid()));
     }
 
     @Override
@@ -160,7 +160,7 @@ public class MenuServiceImpl implements MenuService {
         Long oldPid = menu.getPid();
         Long newPid = resources.getPid();
 
-        if(StringUtils.isNotBlank(resources.getComponentName())){
+        if(StringUtil.isNotBlank(resources.getComponentName())){
             menu1 = menuRepository.findByComponentName(resources.getComponentName());
             if(menu1 != null && !menu1.getId().equals(menu.getId())){
                 throw new EntityExistException(Menu.class,"componentName",resources.getComponentName());
@@ -346,15 +346,15 @@ public class MenuServiceImpl implements MenuService {
      */
     public void delCaches(Long id, Long oldPid, Long newPid){
         List<User> users = userRepository.findByMenuId(id);
-        redisUtils.del("menu::id:" +id);
-        redisUtils.delByKeys("menu::user:",users.stream().map(User::getId).collect(Collectors.toSet()));
-        redisUtils.del("menu::pid:" + (oldPid == null ? 0 : oldPid));
-        redisUtils.del("menu::pid:" + (newPid == null ? 0 : newPid));
+        redisUtil.del("menu::id:" +id);
+        redisUtil.delByKeys("menu::user:",users.stream().map(User::getId).collect(Collectors.toSet()));
+        redisUtil.del("menu::pid:" + (oldPid == null ? 0 : oldPid));
+        redisUtil.del("menu::pid:" + (newPid == null ? 0 : newPid));
         // 清除 Role 缓存
         List<Role> roles = roleService.findInMenuId(new ArrayList<Long>(){{
             add(id);
             add(newPid == null ? 0 : newPid);
         }});
-        redisUtils.delByKeys("role::id:",roles.stream().map(Role::getId).collect(Collectors.toSet()));
+        redisUtil.delByKeys("role::id:",roles.stream().map(Role::getId).collect(Collectors.toSet()));
     }
 }

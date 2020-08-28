@@ -53,13 +53,13 @@ public class DeptServiceImpl implements DeptService {
     private final DeptRepository deptRepository;
     private final DeptMapper deptMapper;
     private final UserRepository userRepository;
-    private final RedisUtils redisUtils;
+    private final RedisUtil redisUtil;
     private final RoleRepository roleRepository;
 
     @Override
     public List<DeptDto> queryAll(DeptQueryCriteria criteria, Boolean isQuery) throws Exception {
         Sort sort = new Sort(Sort.Direction.ASC, "deptSort");
-        String dataScopeType = SecurityUtils.getDataScopeType();
+        String dataScopeType = SecurityUtil.getDataScopeType();
         if (isQuery) {
             if(dataScopeType.equals(DataScopeEnum.ALL.getValue())){
                 criteria.setPidIsNull(true);
@@ -81,7 +81,7 @@ public class DeptServiceImpl implements DeptService {
         }
         List<DeptDto> list = deptMapper.toDto(deptRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root,criteria,criteriaBuilder),sort));
         // 如果为空，就代表为自定义权限或者本级权限，就需要去重，不理解可以注释掉，看查询结果
-        if(StringUtils.isBlank(dataScopeType)){
+        if(StringUtil.isBlank(dataScopeType)){
             return deduplication(list);
         }
         return list;
@@ -113,7 +113,7 @@ public class DeptServiceImpl implements DeptService {
         // 计算子节点数目
         resources.setSubCount(0);
         // 清理缓存
-        redisUtils.del("dept::pid:" + (resources.getPid() == null ? 0 : resources.getPid()));
+        redisUtil.del("dept::pid:" + (resources.getPid() == null ? 0 : resources.getPid()));
         updateSubCnt(resources.getPid());
     }
 
@@ -279,9 +279,9 @@ public class DeptServiceImpl implements DeptService {
     public void delCaches(Long id, Long oldPid, Long newPid){
         List<User> users = userRepository.findByDeptRoleId(id);
         // 删除数据权限
-        redisUtils.delByKeys("data::user:",users.stream().map(User::getId).collect(Collectors.toSet()));
-        redisUtils.del("dept::id:" + id);
-        redisUtils.del("dept::pid:" + (oldPid == null ? 0 : oldPid));
-        redisUtils.del("dept::pid:" + (newPid == null ? 0 : newPid));
+        redisUtil.delByKeys("data::user:",users.stream().map(User::getId).collect(Collectors.toSet()));
+        redisUtil.del("dept::id:" + id);
+        redisUtil.del("dept::pid:" + (oldPid == null ? 0 : oldPid));
+        redisUtil.del("dept::pid:" + (newPid == null ? 0 : newPid));
     }
 }

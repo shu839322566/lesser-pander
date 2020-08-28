@@ -6,7 +6,7 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import static com.nantian.utils.StringUtils.*;
+import static com.nantian.utils.StringUtil.*;
 import static org.junit.Assert.*;
 
 public class StringUtilsTest {
@@ -18,13 +18,13 @@ public class StringUtilsTest {
 
     @Test
     public void testToCapitalizeCamelCase() {
-        assertNull(StringUtils.toCapitalizeCamelCase(null));
+        assertNull(StringUtil.toCapitalizeCamelCase(null));
         assertEquals("HelloWorld", toCapitalizeCamelCase("hello_world"));
     }
 
     @Test
     public void testToUnderScoreCase() {
-        assertNull(StringUtils.toUnderScoreCase(null));
+        assertNull(StringUtil.toUnderScoreCase(null));
         assertEquals("hello_world", toUnderScoreCase("helloWorld"));
         assertEquals("\u0000\u0000", toUnderScoreCase("\u0000\u0000"));
         assertEquals("\u0000_a", toUnderScoreCase("\u0000A"));

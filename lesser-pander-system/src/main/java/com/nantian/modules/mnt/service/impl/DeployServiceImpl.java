@@ -203,7 +203,7 @@ public class DeployServiceImpl implements DeployService {
 		//还原信息入库
 		DeployHistory deployHistory = new DeployHistory();
 		deployHistory.setAppName(appName);
-		deployHistory.setDeployUser(SecurityUtils.getCurrentUsername());
+		deployHistory.setDeployUser(SecurityUtil.getCurrentUsername());
 		deployHistory.setIp(ip);
 		deployHistory.setDeployId(id);
 		deployHistoryService.create(deployHistory);

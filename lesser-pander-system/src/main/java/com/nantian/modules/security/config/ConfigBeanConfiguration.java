@@ -22,7 +22,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @apiNote 配置文件转换Pojo类的 统一配置 类
+ * 配置文件与实体类映射配置
+ *
  * @author: liaojinlong
  * @date: 2020/6/10 19:04
  */

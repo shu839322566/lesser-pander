@@ -57,7 +57,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
     private final FileProperties properties;
-    private final RedisUtils redisUtils;
+    private final RedisUtil redisUtil;
     private final UserCacheClean userCacheClean;
     private final OnlineUserService onlineUserService;
 
@@ -111,13 +111,13 @@ public class UserServiceImpl implements UserService {
         }
         // 如果用户的角色改变
         if (!resources.getRoles().equals(user.getRoles())) {
-            redisUtils.del(CacheKey.DATE_USER + resources.getId());
-            redisUtils.del(CacheKey.MENU_USER + resources.getId());
-            redisUtils.del(CacheKey.ROLE_AUTH + resources.getId());
+            redisUtil.del(CacheKey.DATE_USER + resources.getId());
+            redisUtil.del(CacheKey.MENU_USER + resources.getId());
+            redisUtil.del(CacheKey.ROLE_AUTH + resources.getId());
         }
         // 如果用户名称修改
         if(!resources.getUsername().equals(user.getUsername())){
-            redisUtils.del("user::username:" + user.getUsername());
+            redisUtil.del("user::username:" + user.getUsername());
         }
         // 如果用户被禁用，则清除用户登录信息
         if(!resources.getEnabled()){
@@ -175,24 +175,24 @@ public class UserServiceImpl implements UserService {
     @Transactional(rollbackFor = Exception.class)
     public void updatePass(String username, String pass) {
         userRepository.updatePass(username, pass, new Date());
-        redisUtils.del("user::username:" + username);
+        redisUtil.del("user::username:" + username);
         flushCache(username);
     }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Map<String, String> updateAvatar(MultipartFile multipartFile) {
-        User user = userRepository.findByUsername(SecurityUtils.getCurrentUsername());
+        User user = userRepository.findByUsername(SecurityUtil.getCurrentUsername());
         String oldPath = user.getAvatarPath();
         File file = FileUtil.upload(multipartFile, properties.getPath().getAvatar());
         user.setAvatarPath(Objects.requireNonNull(file).getPath());
         user.setAvatarName(file.getName());
         userRepository.save(user);
-        if (StringUtils.isNotBlank(oldPath)) {
+        if (StringUtil.isNotBlank(oldPath)) {
             FileUtil.del(oldPath);
         }
         @NotBlank String username = user.getUsername();
-        redisUtils.del(CacheKey.USER_NAME + username);
+        redisUtil.del(CacheKey.USER_NAME + username);
         flushCache(username);
         return new HashMap<String, String>(1) {{
             put("avatar", file.getName());
@@ -203,7 +203,7 @@ public class UserServiceImpl implements UserService {
     @Transactional(rollbackFor = Exception.class)
     public void updateEmail(String username, String email) {
         userRepository.updateEmail(username, email);
-        redisUtils.del(CacheKey.USER_NAME + username);
+        redisUtil.del(CacheKey.USER_NAME + username);
         flushCache(username);
     }
 
@@ -233,8 +233,8 @@ public class UserServiceImpl implements UserService {
      * @param id /
      */
     public void delCaches(Long id, String username) {
-        redisUtils.del(CacheKey.USER_ID + id);
-        redisUtils.del(CacheKey.USER_NAME + username);
+        redisUtil.del(CacheKey.USER_ID + id);
+        redisUtil.del(CacheKey.USER_NAME + username);
         flushCache(username);
     }
 

@@ -17,7 +17,7 @@ package com.nantian.rest;
 
 import com.nantian.service.PictureService;
 import com.nantian.service.dto.PictureQueryCriteria;
-import com.nantian.utils.SecurityUtils;
+import com.nantian.utils.SecurityUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -65,7 +65,7 @@ public class PictureController {
     @PostMapping
     @ApiOperation("上传图片")
     public ResponseEntity<Object> upload(@RequestParam MultipartFile file){
-        String userName = SecurityUtils.getCurrentUsername();
+        String userName = SecurityUtil.getCurrentUsername();
         Picture picture = pictureService.upload(file,userName);
         return new ResponseEntity<>(picture,HttpStatus.OK);
     }

@@ -15,7 +15,7 @@
  */
 package com.nantian.config;
 
-import com.nantian.utils.SecurityUtils;
+import com.nantian.utils.SecurityUtil;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.stereotype.Component;
 import java.util.Optional;
@@ -37,7 +37,7 @@ public class AuditorConfig implements AuditorAware<String> {
     public Optional<String> getCurrentAuditor() {
         try {
             // 这里应根据实际业务情况获取具体信息
-            return Optional.of(SecurityUtils.getCurrentUsername());
+            return Optional.of(SecurityUtil.getCurrentUsername());
         }catch (Exception ignored){}
         // 用户定时任务，或者无Token调用的情况
         return Optional.of("System");

@@ -31,15 +31,15 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author /
  */
-@Component
+@Component(value = "redisUtil")
 @SuppressWarnings({"unchecked", "all"})
-public class RedisUtils {
-    private static final Logger log = LoggerFactory.getLogger(RedisUtils.class);
+public class RedisUtil {
+    private static final Logger log = LoggerFactory.getLogger(RedisUtil.class);
     private RedisTemplate<Object, Object> redisTemplate;
     @Value("${jwt.online-key}")
     private String onlineKey;
 
-    public RedisUtils(RedisTemplate<Object, Object> redisTemplate) {
+    public RedisUtil(RedisTemplate<Object, Object> redisTemplate) {
         this.redisTemplate = redisTemplate;
     }
 

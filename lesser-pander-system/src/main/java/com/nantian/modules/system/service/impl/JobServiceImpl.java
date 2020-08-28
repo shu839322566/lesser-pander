@@ -48,7 +48,7 @@ public class JobServiceImpl implements JobService {
 
     private final JobRepository jobRepository;
     private final JobMapper jobMapper;
-    private final RedisUtils redisUtils;
+    private final RedisUtil redisUtil;
     private final UserRepository userRepository;
 
     @Override
@@ -100,7 +100,7 @@ public class JobServiceImpl implements JobService {
     public void delete(Set<Long> ids) {
         jobRepository.deleteAllByIdIn(ids);
         // 删除缓存
-        redisUtils.delByKeys("job::id:", ids);
+        redisUtil.delByKeys("job::id:", ids);
     }
 
     @Override

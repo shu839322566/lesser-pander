@@ -2,7 +2,7 @@ package com.nantian.utils;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import static com.nantian.utils.EncryptUtils.*;
+import static com.nantian.utils.EncryptUtil.*;
 
 public class EncryptUtilsTest {
 

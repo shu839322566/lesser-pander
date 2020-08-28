@@ -16,11 +16,12 @@
 package com.nantian.modules.security.service.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.nantian.modules.system.service.dto.UserDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import com.nantian.modules.system.service.dto.UserDto;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;

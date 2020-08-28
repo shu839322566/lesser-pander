@@ -16,7 +16,7 @@
 package com.nantian.rest;
 
 import com.nantian.service.dto.LogQueryCriteria;
-import com.nantian.utils.SecurityUtils;
+import com.nantian.utils.SecurityUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -71,7 +71,7 @@ public class LogController {
     @ApiOperation("用户日志查询")
     public ResponseEntity<Object> queryUserLog(LogQueryCriteria criteria, Pageable pageable){
         criteria.setLogType("INFO");
-        criteria.setBlurry(SecurityUtils.getCurrentUsername());
+        criteria.setBlurry(SecurityUtil.getCurrentUsername());
         return new ResponseEntity<>(logService.queryAllByUser(criteria,pageable), HttpStatus.OK);
     }
 

@@ -17,10 +17,10 @@ package com.nantian.aspect;
 
 import com.nantian.domain.Log;
 import com.nantian.service.LogService;
-import com.nantian.utils.SecurityUtils;
+import com.nantian.utils.SecurityUtil;
 import lombok.extern.slf4j.Slf4j;
 import com.nantian.utils.RequestHolder;
-import com.nantian.utils.StringUtils;
+import com.nantian.utils.StringUtil;
 import com.nantian.utils.ThrowableUtil;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -69,7 +69,7 @@ public class LogAspect {
         Log log = new Log("INFO",System.currentTimeMillis() - currentTime.get());
         currentTime.remove();
         HttpServletRequest request = RequestHolder.getHttpServletRequest();
-        logService.save(getUsername(), StringUtils.getBrowser(request), StringUtils.getIp(request),joinPoint, log);
+        logService.save(getUsername(), StringUtil.getBrowser(request), StringUtil.getIp(request),joinPoint, log);
         return result;
     }
 
@@ -85,12 +85,12 @@ public class LogAspect {
         currentTime.remove();
         log.setExceptionDetail(ThrowableUtil.getStackTrace(e).getBytes());
         HttpServletRequest request = RequestHolder.getHttpServletRequest();
-        logService.save(getUsername(), StringUtils.getBrowser(request), StringUtils.getIp(request), (ProceedingJoinPoint)joinPoint, log);
+        logService.save(getUsername(), StringUtil.getBrowser(request), StringUtil.getIp(request), (ProceedingJoinPoint)joinPoint, log);
     }
 
     public String getUsername() {
         try {
-            return SecurityUtils.getCurrentUsername();
+            return SecurityUtil.getCurrentUsername();
         }catch (Exception e){
             return "";
         }

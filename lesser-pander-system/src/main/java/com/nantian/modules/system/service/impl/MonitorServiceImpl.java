@@ -19,7 +19,7 @@ import cn.hutool.core.date.BetweenFormater;
 import cn.hutool.core.date.DateUtil;
 import com.nantian.modules.system.service.MonitorService;
 import com.nantian.utils.FileUtil;
-import com.nantian.utils.StringUtils;
+import com.nantian.utils.StringUtil;
 import org.springframework.stereotype.Service;
 import oshi.SystemInfo;
 import oshi.hardware.*;
@@ -157,7 +157,7 @@ public class MonitorServiceImpl implements MonitorService {
         // 系统信息
         systemInfo.put("os", os.toString());
         systemInfo.put("day", formatBetween);
-        systemInfo.put("ip", StringUtils.getLocalIp());
+        systemInfo.put("ip", StringUtil.getLocalIp());
         return systemInfo;
     }
 }

@@ -19,7 +19,7 @@ import com.nantian.service.GenConfigService;
 import lombok.RequiredArgsConstructor;
 import com.nantian.domain.GenConfig;
 import com.nantian.repository.GenConfigRepository;
-import com.nantian.utils.StringUtils;
+import com.nantian.utils.StringUtil;
 import org.springframework.stereotype.Service;
 import java.io.File;
 
@@ -45,7 +45,7 @@ public class GenConfigServiceImpl implements GenConfigService {
     @Override
     public GenConfig update(String tableName, GenConfig genConfig) {
         // 如果 api 路径为空，则自动生成路径
-        if(StringUtils.isBlank(genConfig.getApiPath())){
+        if(StringUtil.isBlank(genConfig.getApiPath())){
             String separator = File.separator;
             String[] paths;
             String symbol = "\\";

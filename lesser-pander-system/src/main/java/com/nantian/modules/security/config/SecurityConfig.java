@@ -47,7 +47,9 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 import java.util.*;
 
 /**
- * @author Zheng Jie
+ * spring-security配置类
+ *
+ * @author shuyx
  */
 @Configuration
 @EnableWebSecurity

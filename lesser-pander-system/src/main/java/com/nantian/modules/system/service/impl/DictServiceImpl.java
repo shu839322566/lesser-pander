@@ -45,7 +45,7 @@ public class DictServiceImpl implements DictService {
 
     private final DictRepository dictRepository;
     private final DictMapper dictMapper;
-    private final RedisUtils redisUtils;
+    private final RedisUtil redisUtil;
 
     @Override
     public Map<String, Object> queryAll(DictQueryCriteria dict, Pageable pageable){
@@ -115,6 +115,6 @@ public class DictServiceImpl implements DictService {
     }
 
     public void delCaches(Dict dict){
-        redisUtils.del("dept::name:" + dict.getName());
+        redisUtil.del("dept::name:" + dict.getName());
     }
 }
