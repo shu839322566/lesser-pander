@@ -124,4 +124,4 @@
 项目的发展离不开你的支持，请作者喝杯咖啡吧☕  [Donate](https://el-admin.vip/donation/)
 
 #### 反馈交流
-- @author shuyx
+- @author shuyx shu839322566@icloud.com

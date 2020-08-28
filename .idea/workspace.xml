@@ -14,12 +14,16 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:shuyx" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7630b5b-fb8e-47b2-9b3a-9f4b44156ed9" name="Default Changelist" comment="[代码更新v1.0]：项目初始化" />
+    <list default="true" id="a7630b5b-fb8e-47b2-9b3a-9f4b44156ed9" name="Default Changelist" comment="[代码更新v1.0]：项目初始化">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,6 +33,24 @@
     <option name="done" value="true" />
   </component>
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="shuyx" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
@@ -74,7 +96,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.3137255" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
@@ -140,7 +162,8 @@
       <workItem from="1598595376234" duration="1337000" />
       <workItem from="1598596884961" duration="1416000" />
       <workItem from="1598598469234" duration="457000" />
-      <workItem from="1598598960329" duration="561000" />
+      <workItem from="1598598960329" duration="1172000" />
+      <workItem from="1598600138807" duration="505000" />
     </task>
     <task id="LOCAL-00001" summary="[更新配置]修改作者">
       <created>1598247622973</created>
@@ -254,7 +277,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="shuyx" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -305,6 +328,10 @@
       <screen x="0" y="23" width="1440" height="806" />
     </state>
     <state x="354" y="111" key="#Inspections/0.23.1440.806@0.23.1440.806" timestamp="1598254867256" />
+    <state x="445" y="257" key="#Notifications" timestamp="1598600644129">
+      <screen x="0" y="23" width="1440" height="806" />
+    </state>
+    <state x="445" y="257" key="#Notifications/0.23.1440.806@0.23.1440.806" timestamp="1598600644129" />
     <state x="209" y="23" key="#Project_Structure" timestamp="1598345812603">
       <screen x="0" y="23" width="1440" height="806" />
     </state>
@@ -317,10 +344,18 @@
       <screen x="0" y="23" width="1440" height="806" />
     </state>
     <state x="280" y="23" key="CommitChangelistDialog2/0.23.1440.806@0.23.1440.806" timestamp="1598247677283" />
-    <state width="597" height="200" key="Git.Branch.Popup" timestamp="1598599328667">
+    <state width="597" height="200" key="Git.Branch.Popup" timestamp="1598600638324">
       <screen x="0" y="23" width="1440" height="806" />
     </state>
-    <state width="597" height="200" key="Git.Branch.Popup/0.23.1440.806@0.23.1440.806" timestamp="1598599328667" />
+    <state width="597" height="200" key="Git.Branch.Popup/0.23.1440.806@0.23.1440.806" timestamp="1598600638324" />
+    <state x="391" y="305" width="620" height="323" key="Github.ShareDialog" timestamp="1598599713369">
+      <screen x="0" y="23" width="1440" height="806" />
+    </state>
+    <state x="391" y="305" width="620" height="323" key="Github.ShareDialog/0.23.1440.806@0.23.1440.806" timestamp="1598599713369" />
+    <state x="361" y="136" key="Github.UntrackedFilesDialog" timestamp="1598599774353">
+      <screen x="0" y="23" width="1440" height="806" />
+    </state>
+    <state x="361" y="136" key="Github.UntrackedFilesDialog/0.23.1440.806@0.23.1440.806" timestamp="1598599774353" />
     <state width="1398" height="424" key="GridCell.Tab.0.bottom" timestamp="1598596873029">
       <screen x="0" y="23" width="1440" height="806" />
     </state>
@@ -385,10 +420,10 @@
       <screen x="0" y="23" width="1440" height="806" />
     </state>
     <state x="438" y="138" key="RollbackChangesDialog/0.23.1440.806@0.23.1440.806" timestamp="1598412383221" />
-    <state x="245" y="23" key="SettingsEditor" timestamp="1598599521709">
+    <state x="245" y="23" key="SettingsEditor" timestamp="1598600462170">
       <screen x="0" y="23" width="1440" height="806" />
     </state>
-    <state x="245" y="23" key="SettingsEditor/0.23.1440.806@0.23.1440.806" timestamp="1598599521709" />
+    <state x="245" y="23" key="SettingsEditor/0.23.1440.806@0.23.1440.806" timestamp="1598600462170" />
     <state x="311" y="174" key="Vcs.Push.Dialog.v2" timestamp="1598599429298">
       <screen x="0" y="23" width="1440" height="806" />
     </state>
@@ -401,10 +436,10 @@
       <screen x="0" y="23" width="1440" height="806" />
     </state>
     <state x="601" y="277" key="cloudConfig.SelfSettingsDialog/0.23.1440.806@0.23.1440.806" timestamp="1598347903120" />
-    <state x="518" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598598688353">
+    <state x="518" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598600546098">
       <screen x="0" y="23" width="1440" height="806" />
     </state>
-    <state x="518" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.806@0.23.1440.806" timestamp="1598598688353" />
+    <state x="518" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.806@0.23.1440.806" timestamp="1598600546098" />
     <state x="389" y="94" width="653" height="735" key="find.popup" timestamp="1598574955276">
       <screen x="0" y="23" width="1440" height="806" />
     </state>
