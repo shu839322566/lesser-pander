@@ -16,9 +16,9 @@
 package com.nantian.modules.quartz.config;
 
 import com.nantian.modules.quartz.domain.QuartzJob;
+import com.nantian.modules.quartz.repository.QuartzJobRepository;
 import com.nantian.modules.quartz.utils.QuartzManage;
 import lombok.RequiredArgsConstructor;
-import com.nantian.modules.quartz.repository.QuartzJobRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.ApplicationArguments;

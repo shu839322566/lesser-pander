@@ -13,10 +13,11 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.nantian.modules.quartz.service.dto;
+package com.nantian.modules.quartz.service.criteria;
 
-import lombok.Data;
 import com.nantian.annotation.Query;
+import lombok.Data;
+
 import java.sql.Timestamp;
 import java.util.List;
 

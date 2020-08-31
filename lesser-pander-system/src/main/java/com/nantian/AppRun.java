@@ -18,7 +18,6 @@ package com.nantian;
 import com.nantian.annotation.rest.AnonymousGetMapping;
 import com.nantian.utils.ApplicationContextHolder;
 import io.swagger.annotations.Api;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
@@ -39,7 +38,6 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @EnableTransactionManagement
 @EnableJpaAuditing(auditorAwareRef = "auditorAware")
-@MapperScan(value = {"com.nantian.modules.*.dao"})
 public class AppRun {
 
     public static void main(String[] args) {
