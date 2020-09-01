@@ -46,7 +46,7 @@ public class QuartzManage {
             JobDetail jobDetail = JobBuilder.newJob(ExecutionJob.class).
                     withIdentity(JOB_NAME + quartzJob.getId()).build();
 
-            //通过触发器名和cron 表达式创建 Trigger
+            // 通过触发器名和cron 表达式创建 Trigger
             Trigger cronTrigger = newTrigger()
                     .withIdentity(JOB_NAME + quartzJob.getId())
                     .startNow()
@@ -55,16 +55,14 @@ public class QuartzManage {
 
             cronTrigger.getJobDataMap().put(QuartzJob.JOB_KEY, quartzJob);
 
-            //重置启动时间
+            // 重置启动时间
             ((CronTriggerImpl) cronTrigger).setStartTime(new Date());
 
-            //执行定时任务
+            // 执行定时任务
             scheduler.scheduleJob(jobDetail, cronTrigger);
 
             // 暂停任务
-            if (quartzJob.getIsPause()) {
-                pauseJob(quartzJob);
-            }
+            // if (quartzJob.getIsPause()) { pauseJob(quartzJob); }
         } catch (Exception e) {
             log.error("创建定时任务失败", e);
             throw new BadRequestException("创建定时任务失败");

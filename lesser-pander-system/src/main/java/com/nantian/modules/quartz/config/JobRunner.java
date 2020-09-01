@@ -28,6 +28,8 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
+ * 项目启动时重新激活启用的定时任务
+ *
  * @author Zheng Jie
  * @date 2019-01-07
  */
@@ -39,15 +41,15 @@ public class JobRunner implements ApplicationRunner {
     private final QuartzManage quartzManage;
 
     /**
-     * 项目启动时重新激活启用的定时任务
+     * 注入定时任务
      *
-     * @param applicationArguments /
+     * @param applicationArguments
      */
     @Override
     public void run(ApplicationArguments applicationArguments) {
-        log.info("--------------------注入定时任务---------------------");
+        log.info("开始注入定时任务>>>");
         List<QuartzJob> quartzJobs = quartzJobRepository.findByIsPauseIsFalse();
         quartzJobs.forEach(quartzManage::addJob);
-        log.info("--------------------定时任务注入完成---------------------");
+        log.info("定时任务注入完成>>>");
     }
 }

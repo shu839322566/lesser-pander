@@ -21,6 +21,7 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +31,7 @@ import java.util.List;
  * @date 2020/08/28
  */
 @Slf4j
+@Component(value = "applicationContextHolder")
 public class ApplicationContextHolder implements ApplicationContextAware, DisposableBean {
 
     private static ApplicationContext applicationContext = null;

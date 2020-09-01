@@ -45,15 +45,10 @@ public class AppRun {
     }
 
     @Bean
-    public ApplicationContextHolder springContextHolder() {
-        return new ApplicationContextHolder();
-    }
-
-    @Bean
     public ServletWebServerFactory webServerFactory() {
-        TomcatServletWebServerFactory fa = new TomcatServletWebServerFactory();
-        fa.addConnectorCustomizers(connector -> connector.setProperty("relaxedQueryChars", "[]{}"));
-        return fa;
+        TomcatServletWebServerFactory factory = new TomcatServletWebServerFactory();
+        factory.addConnectorCustomizers(connector -> connector.setProperty("relaxedQueryChars", "[]{}"));
+        return factory;
     }
 
     /**

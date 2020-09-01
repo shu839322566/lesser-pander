@@ -11,7 +11,7 @@ import java.lang.reflect.Method;
 import java.util.concurrent.Future;
 
 /**
- * 异步处理方法工具类
+ * 异步执行定时任务
  *
  * @author shuyx
  */
