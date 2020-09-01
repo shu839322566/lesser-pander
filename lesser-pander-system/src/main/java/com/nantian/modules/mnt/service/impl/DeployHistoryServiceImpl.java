@@ -17,28 +17,29 @@ package com.nantian.modules.mnt.service.impl;
 
 import cn.hutool.core.util.IdUtil;
 import com.nantian.modules.mnt.domain.DeployHistory;
-import com.nantian.modules.mnt.service.dto.DeployHistoryQueryCriteria;
-import com.nantian.modules.mnt.service.mapstruct.DeployHistoryMapper;
-import lombok.RequiredArgsConstructor;
 import com.nantian.modules.mnt.repository.DeployHistoryRepository;
 import com.nantian.modules.mnt.service.DeployHistoryService;
 import com.nantian.modules.mnt.service.dto.DeployHistoryDto;
+import com.nantian.modules.mnt.service.dto.DeployHistoryQueryCriteria;
+import com.nantian.modules.mnt.service.mapstruct.DeployHistoryMapper;
 import com.nantian.utils.FileUtil;
 import com.nantian.utils.PageUtil;
 import com.nantian.utils.QueryHelp;
 import com.nantian.utils.ValidationUtil;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.*;
 
 /**
-* @author zhanghouying
-* @date 2019-08-24
-*/
+ * @author zhanghouying
+ * @date 2019-08-24
+ */
 @Service
 @RequiredArgsConstructor
 public class DeployHistoryServiceImpl implements DeployHistoryService {
@@ -47,20 +48,20 @@ public class DeployHistoryServiceImpl implements DeployHistoryService {
     private final DeployHistoryMapper deployhistoryMapper;
 
     @Override
-    public Object queryAll(DeployHistoryQueryCriteria criteria, Pageable pageable){
-        Page<DeployHistory> page = deployhistoryRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root,criteria,criteriaBuilder),pageable);
+    public Object queryAll(DeployHistoryQueryCriteria criteria, Pageable pageable) {
+        Page<DeployHistory> page = deployhistoryRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root, criteria, criteriaBuilder), pageable);
         return PageUtil.toPage(page.map(deployhistoryMapper::toDto));
     }
 
     @Override
-    public List<DeployHistoryDto> queryAll(DeployHistoryQueryCriteria criteria){
-        return deployhistoryMapper.toDto(deployhistoryRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root,criteria,criteriaBuilder)));
+    public List<DeployHistoryDto> queryAll(DeployHistoryQueryCriteria criteria) {
+        return deployhistoryMapper.toDto(deployhistoryRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root, criteria, criteriaBuilder)));
     }
 
     @Override
     public DeployHistoryDto findById(String id) {
         DeployHistory deployhistory = deployhistoryRepository.findById(id).orElseGet(DeployHistory::new);
-        ValidationUtil.isNull(deployhistory.getId(),"DeployHistory","id",id);
+        ValidationUtil.isNull(deployhistory.getId(), "DeployHistory", "id", id);
         return deployhistoryMapper.toDto(deployhistory);
     }
 
@@ -83,7 +84,7 @@ public class DeployHistoryServiceImpl implements DeployHistoryService {
     public void download(List<DeployHistoryDto> queryAll, HttpServletResponse response) throws IOException {
         List<Map<String, Object>> list = new ArrayList<>();
         for (DeployHistoryDto deployHistoryDto : queryAll) {
-            Map<String,Object> map = new LinkedHashMap<>();
+            Map<String, Object> map = new LinkedHashMap<>();
             map.put("部署编号", deployHistoryDto.getDeployId());
             map.put("应用名称", deployHistoryDto.getAppName());
             map.put("部署IP", deployHistoryDto.getIp());

@@ -15,17 +15,17 @@
  */
 package com.nantian.modules.mnt.service.mapstruct;
 
-import com.nantian.modules.mnt.domain.App;
 import com.nantian.base.BaseMapper;
+import com.nantian.modules.mnt.domain.App;
 import com.nantian.modules.mnt.service.dto.AppDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
 /**
-* @author zhanghouying
-* @date 2019-08-24
-*/
-@Mapper(componentModel = "spring",uses = {},unmappedTargetPolicy = ReportingPolicy.IGNORE)
+ * @author zhanghouying
+ * @date 2019-08-24
+ */
+@Mapper(componentModel = "spring", uses = {}, unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface AppMapper extends BaseMapper<AppDto, App> {
 
 }

@@ -36,7 +36,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 @Slf4j
 @EnableAsync
 @Configuration
-public class AsyncTaskExecutePool{
+public class AsyncTaskExecutePool {
 
     /**
      * 核心线程数

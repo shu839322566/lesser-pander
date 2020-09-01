@@ -19,14 +19,59 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7630b5b-fb8e-47b2-9b3a-9f4b44156ed9" name="Default Changelist" comment="[代码更新v1.0]:去除mybatis">
+    <list default="true" id="a7630b5b-fb8e-47b2-9b3a-9f4b44156ed9" name="Default Changelist" comment="[代码更新v1.0]:代码更新">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesser-pander-common/src/main/java/com/nantian/utils/ApplicationContextHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-common/src/main/java/com/nantian/utils/ApplicationContextHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/AppRun.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/AppRun.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/quartz/config/JobRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/quartz/config/JobRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/quartz/utils/JobUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/quartz/utils/JobUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/quartz/utils/QuartzManage.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/quartz/utils/QuartzManage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/security/service/dto/AuthUserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/security/service/dto/AuthUserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-common/src/main/java/com/nantian/base/BaseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-common/src/main/java/com/nantian/base/BaseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-common/src/main/java/com/nantian/base/BaseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-common/src/main/java/com/nantian/base/BaseMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/config/AsyncTaskExecutePool.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/config/AsyncTaskExecutePool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/domain/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/domain/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/domain/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/domain/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/domain/Deploy.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/domain/Deploy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/domain/DeployHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/domain/DeployHistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/domain/ServerDeploy.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/domain/ServerDeploy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/repository/AppRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/repository/AppRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/repository/DatabaseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/repository/DatabaseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/repository/DeployHistoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/repository/DeployHistoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/repository/DeployRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/repository/DeployRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/repository/ServerDeployRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/repository/ServerDeployRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/rest/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/rest/AppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/rest/DatabaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/rest/DatabaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/rest/DeployController.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/rest/DeployController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/rest/DeployHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/rest/DeployHistoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/rest/ServerDeployController.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/rest/ServerDeployController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/AppService.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/AppService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/DatabaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/DatabaseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/DeployHistoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/DeployHistoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/DeployService.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/DeployService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/ServerDeployService.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/ServerDeployService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/dto/AppDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/dto/AppDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/dto/AppQueryCriteria.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/dto/AppQueryCriteria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/dto/DatabaseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/dto/DatabaseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/dto/DatabaseQueryCriteria.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/dto/DatabaseQueryCriteria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/dto/DeployDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/dto/DeployDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/dto/DeployHistoryDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/dto/DeployHistoryDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/dto/DeployHistoryQueryCriteria.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/dto/DeployHistoryQueryCriteria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/dto/DeployQueryCriteria.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/dto/DeployQueryCriteria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/dto/ServerDeployDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/dto/ServerDeployDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/dto/ServerDeployQueryCriteria.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/dto/ServerDeployQueryCriteria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/impl/AppServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/impl/AppServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/impl/DatabaseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/impl/DatabaseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/impl/DeployHistoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/impl/DeployHistoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/impl/DeployServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/impl/DeployServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/impl/ServerDeployServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/impl/ServerDeployServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/mapstruct/AppMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/mapstruct/AppMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/mapstruct/DatabaseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/mapstruct/DatabaseMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/mapstruct/DeployHistoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/mapstruct/DeployHistoryMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/mapstruct/DeployMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/mapstruct/DeployMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/mapstruct/ServerDeployMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/service/mapstruct/ServerDeployMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/util/DataTypeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/util/DataTypeEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/util/ExecuteShellUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/util/ExecuteShellUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/util/ScpClientUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/util/ScpClientUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/util/SqlUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/util/SqlUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/util/ZipUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/util/ZipUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/websocket/MsgType.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/websocket/MsgType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/websocket/SocketMsg.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/websocket/SocketMsg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/websocket/WebSocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesser-pander-system/src/main/java/com/nantian/modules/mnt/websocket/WebSocketServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +163,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.3137255" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
@@ -129,6 +174,17 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AppRun" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="lesser-pander-system" />
       <extension name="coverage">
@@ -208,7 +264,9 @@
       <workItem from="1598857348130" duration="5218000" />
       <workItem from="1598862895096" duration="2593000" />
       <workItem from="1598865895256" duration="2509000" />
-      <workItem from="1598919434991" duration="1993000" />
+      <workItem from="1598919434991" duration="2074000" />
+      <workItem from="1598921534220" duration="161000" />
+      <workItem from="1598921709027" duration="3455000" />
     </task>
     <task id="LOCAL-00001" summary="[更新配置]修改作者">
       <created>1598247622973</created>
@@ -315,7 +373,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598863852649</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="[代码更新v1.0]:代码更新">
+      <created>1598921457858</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1598921457858</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -401,7 +466,8 @@
     <MESSAGE value="[代码更新v1.0]：项目初始化" />
     <MESSAGE value="[代码更新v1.0]:项目初始化" />
     <MESSAGE value="[代码更新v1.0]:去除mybatis" />
-    <option name="LAST_COMMIT_MESSAGE" value="[代码更新v1.0]:去除mybatis" />
+    <MESSAGE value="[代码更新v1.0]:代码更新" />
+    <option name="LAST_COMMIT_MESSAGE" value="[代码更新v1.0]:代码更新" />
   </component>
   <component name="WindowStateProjectService">
     <state x="627" y="324" key="#Assign_Data_Sources" timestamp="1598863032338">
@@ -424,10 +490,10 @@
       <screen x="0" y="23" width="1440" height="806" />
     </state>
     <state x="261" y="129" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.806@0.23.1440.806" timestamp="1598602060825" />
-    <state x="428" y="235" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598602622670">
+    <state x="428" y="235" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598923362382">
       <screen x="0" y="23" width="1440" height="806" />
     </state>
-    <state x="428" y="235" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.806@0.23.1440.806" timestamp="1598602622670" />
+    <state x="428" y="235" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.806@0.23.1440.806" timestamp="1598923362382" />
     <state x="0" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1598608445623">
       <screen x="0" y="23" width="1440" height="806" />
     </state>
@@ -516,14 +582,14 @@
       <screen x="0" y="23" width="1440" height="806" />
     </state>
     <state x="438" y="138" key="RollbackChangesDialog/0.23.1440.806@0.23.1440.806" timestamp="1598862731989" />
-    <state x="245" y="23" key="SettingsEditor" timestamp="1598843441231">
+    <state x="245" y="23" key="SettingsEditor" timestamp="1598921734329">
       <screen x="0" y="23" width="1440" height="806" />
     </state>
-    <state x="245" y="23" key="SettingsEditor/0.23.1440.806@0.23.1440.806" timestamp="1598843441231" />
-    <state x="311" y="174" key="Vcs.Push.Dialog.v2" timestamp="1598863866433">
+    <state x="245" y="23" key="SettingsEditor/0.23.1440.806@0.23.1440.806" timestamp="1598921734329" />
+    <state x="311" y="174" key="Vcs.Push.Dialog.v2" timestamp="1598921790342">
       <screen x="0" y="23" width="1440" height="806" />
     </state>
-    <state x="311" y="174" key="Vcs.Push.Dialog.v2/0.23.1440.806@0.23.1440.806" timestamp="1598863866433" />
+    <state x="311" y="174" key="Vcs.Push.Dialog.v2/0.23.1440.806@0.23.1440.806" timestamp="1598921790342" />
     <state x="464" y="277" key="cloudConfig.PluginsDialog" timestamp="1598347915194">
       <screen x="0" y="23" width="1440" height="806" />
     </state>
@@ -536,10 +602,10 @@
       <screen x="0" y="23" width="1440" height="806" />
     </state>
     <state x="518" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.806@0.23.1440.806" timestamp="1598600546098" />
-    <state x="567" y="94" width="708" height="735" key="find.popup" timestamp="1598844200353">
+    <state x="567" y="94" width="722" height="735" key="find.popup" timestamp="1598923478096">
       <screen x="0" y="23" width="1440" height="806" />
     </state>
-    <state x="567" y="94" width="708" height="735" key="find.popup/0.23.1440.806@0.23.1440.806" timestamp="1598844200353" />
+    <state x="567" y="94" width="722" height="735" key="find.popup/0.23.1440.806@0.23.1440.806" timestamp="1598923478096" />
     <state x="385" y="153" width="670" height="676" key="search.everywhere.popup" timestamp="1598867442029">
       <screen x="0" y="23" width="1440" height="806" />
     </state>

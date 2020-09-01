@@ -15,17 +15,17 @@
  */
 package com.nantian.modules.mnt.service.mapstruct;
 
+import com.nantian.base.BaseMapper;
 import com.nantian.modules.mnt.domain.Database;
 import com.nantian.modules.mnt.service.dto.DatabaseDto;
-import com.nantian.base.BaseMapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
 /**
-* @author zhanghouying
-* @date 2019-08-24
-*/
-@Mapper(componentModel = "spring",unmappedTargetPolicy = ReportingPolicy.IGNORE)
+ * @author zhanghouying
+ * @date 2019-08-24
+ */
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface DatabaseMapper extends BaseMapper<DatabaseDto, Database> {
 
 }
